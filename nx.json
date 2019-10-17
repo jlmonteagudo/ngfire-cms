@@ -7,5 +7,27 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "cms-e2e": {
+      "tags": []
+    },
+    "cms": {
+      "tags": []
+    },
+    "cms-admin-e2e": {
+      "tags": []
+    },
+    "cms-admin": {
+      "tags": []
+    },
+    "data-access-e2e": {
+      "tags": []
+    },
+    "material-ui": {
+      "tags": []
+    },
+    "data-access": {
+      "tags": []
+    }
+  }
 }

@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "ngfireCms", "camelCase"],
+    "component-selector": [true, "element", "ngfire-cms", "kebab-case"]
+  }
+}

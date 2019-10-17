@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ngfire-cms/material-ui": ["libs/material-ui/src/index.ts"],
+      "@ngfire-cms/data-access": ["libs/data-access/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

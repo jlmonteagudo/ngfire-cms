@@ -1,0 +1,42 @@
+<form [formGroup]="categoryForm" novalidate (ngSubmit)="onSubmit()">
+
+  <!-- TITLE -->
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput #categoryTitle maxlength="150" placeholder="Title" formControlName="title" required (blur)="setId()">
+        <mat-hint align="end">{{categoryTitle.value.length}} / 150</mat-hint>
+        <mat-error *ngIf="categoryForm.controls['title'].hasError('required')">
+          Title is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- CATEGORY ID -->
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput #categoryId maxlength="150" placeholder="Slug" formControlName="id" required (blur)="setId()">
+        <mat-hint align="end">{{categoryId.value.length}} / 150</mat-hint>
+        <mat-error *ngIf="categoryForm.controls['id'].hasError('required')">
+          Id is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="row form-actions">
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!categoryForm.valid">
+      <mat-icon>save</mat-icon> SAVE
+    </button>
+
+    <button mat-raised-button color="warn" type="button" [routerLink]="['/category']">
+      <mat-icon>cancel</mat-icon> CANCEL
+    </button>
+
+  </div>
+
+</form>

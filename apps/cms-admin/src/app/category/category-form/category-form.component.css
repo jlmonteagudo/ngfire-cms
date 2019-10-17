@@ -1,0 +1,11 @@
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+.form-actions button{
+  margin-right: 10px;
+}
