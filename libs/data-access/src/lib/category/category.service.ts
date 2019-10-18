@@ -1,5 +1,6 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Category } from './category';
 
 @Injectable({
@@ -7,10 +8,16 @@ import { Category } from './category';
 })
 export class CategoryService {
 
+  private readonly COLLECTION_NAME = '/categories';
+
   constructor(private db: AngularFirestore) { }
 
-  insert(category: Category) {
-    this.db.collection('categories').add(category);
+  insert(category: Category): Promise<DocumentReference> {
+    return this.db.collection<Category>(this.COLLECTION_NAME).add(category);
+  }
+
+  findAll(): Observable<Category[]> {
+    return this.db.collection<Category>(this.COLLECTION_NAME).valueChanges();
   }
 
 }

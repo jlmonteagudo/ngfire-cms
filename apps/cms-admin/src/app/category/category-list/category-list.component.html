@@ -1,1 +1,17 @@
-<p>category-list works!</p>
+<h3>CATEGORIES</h3>
+
+<div class="actions" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+  <div fxFlex>
+    <button mat-raised-button color="primary" [routerLink]="['new']">
+      <mat-icon>add</mat-icon> NEW CATEGORY
+    </button>
+  </div>
+</div>
+
+<mat-form-field>
+  <input matInput placeholder="Filter by title" [formControl]="filter">
+  <mat-icon matSuffix>filter_list</mat-icon>
+</mat-form-field>
+
+<ngfire-cms-category-table [categories]="filteredCategories$ | async">
+</ngfire-cms-category-table>

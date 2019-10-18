@@ -1,3 +1,4 @@
+import { AppSnackbarComponent } from './app-snackbar/app-snackbar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -92,6 +93,12 @@ const modules = [
 
 @NgModule({
   imports: [CommonModule, ...modules],
-  exports: [...modules]
+  exports: [...modules],
+  declarations: [
+    AppSnackbarComponent
+  ],
+  entryComponents: [
+    AppSnackbarComponent
+  ]
 })
 export class MaterialUiModule {}

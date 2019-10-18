@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CategoryNewComponent } from './category-new/category-new.component';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'new', pathMatch: 'full' },
+  { path: '', component: CategoryListComponent },
   { path: 'new', component: CategoryNewComponent }
 ];
 

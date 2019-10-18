@@ -12,7 +12,11 @@ export class DataAccessModule {
   //   return {
   //     ngModule: DataAccessModule,
   //     imports: [
-  //       AngularFireModule.initializeApp(firebaseConfig)
+  //       AngularFireModule.initializeApp(firebaseConfig),
+  //       AngularFirestoreModule
+  //     ],
+  //     providers: [
+  //       AngularFirestore
   //     ]
   //   }
   // }

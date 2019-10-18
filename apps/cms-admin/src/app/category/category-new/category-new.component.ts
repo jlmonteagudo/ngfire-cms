@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category, CategoryService } from '@ngfire-cms/data-access';
+import { AppSnackbarService } from '@ngfire-cms/material-ui';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngfire-cms-category-new',
@@ -8,25 +10,20 @@ import { Category, CategoryService } from '@ngfire-cms/data-access';
 })
 export class CategoryNewComponent implements OnInit {
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService,
+              private appSnackbarService: AppSnackbarService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
   onSave(category: Category) {
-    console.info(category);
-    this.categoryService.insert(category);
+    this.categoryService.insert(category)
+      .then(() => {
+        this.appSnackbarService.info('Category has been created');
+        this.router.navigate(['/']);
+      })
+      .catch(error => this.appSnackbarService.error(`Error creating the category: ${error}`));
   }
-
-
-  // onSave(article: Article) {
-
-  //   this.articleService.insert(article)
-  //     .then(() => {
-  //       this.appSnackbarService.info('Article has been created');
-  //       this.router.navigate(['/article']);
-  //     })
-  //     .catch(error => this.appSnackbarService.warning(`Error creating the article: ${error}`));
-  // }
 
 }

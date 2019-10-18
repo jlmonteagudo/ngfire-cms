@@ -11,6 +11,9 @@ import { CategoryFilesComponent } from './category-files/category-files.componen
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryUploadComponent } from './category-upload/category-upload.component';
 import { CategoryTableComponent } from './category-table/category-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [CategoryFormComponent, CategoryNewComponent, CategoryEditComponent, CategoryFilesComponent, CategoryListComponent, CategoryUploadComponent, CategoryTableComponent],
@@ -19,7 +22,10 @@ import { CategoryTableComponent } from './category-table/category-table.componen
     CategoryRoutingModule,
     MaterialUiModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class CategoryModule { }

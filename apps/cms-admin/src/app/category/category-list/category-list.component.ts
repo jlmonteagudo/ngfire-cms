@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, combineLatest } from 'rxjs';
+import { Category, CategoryService } from '@ngfire-cms/data-access';
+import { FormControl } from '@angular/forms';
+import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'ngfire-cms-category-list',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryListComponent implements OnInit {
 
-  constructor() { }
+  filteredCategories$: Observable<Category[]>;
+  filter: FormControl = new FormControl('');
+
+  constructor(private categoryService: CategoryService) {
+    this.setupTableFiltering();
+  }
 
   ngOnInit() {
+  }
+
+  private setupTableFiltering() {
+
+    this.filteredCategories$ = combineLatest([
+      this.categoryService.findAll(),
+      this.filter.valueChanges.pipe(startWith(''))
+    ]).pipe(
+      map(([categories, filterString]) => categories.filter(category => category.title.toLowerCase().indexOf(filterString.toLowerCase()) !== -1))
+    );
+
   }
 
 }
