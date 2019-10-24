@@ -13,5 +13,8 @@
   <mat-icon matSuffix>filter_list</mat-icon>
 </mat-form-field>
 
-<ngfire-cms-category-table [categories]="filteredCategories$ | async">
+<ngfire-cms-category-table
+  [categories]="filteredCategories$ | async"
+  (edit)="onEdit($event)"
+  >
 </ngfire-cms-category-table>

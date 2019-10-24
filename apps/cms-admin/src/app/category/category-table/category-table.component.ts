@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -13,13 +13,16 @@ import { Category } from '@ngfire-cms/data-access';
 export class CategoryTableComponent implements AfterViewInit, OnInit, OnChanges {
 
   @Input() categories: Category[];
+  @Output() edit: EventEmitter<Category> = new EventEmitter<Category>();
+  @Output() delete: EventEmitter<Category> = new EventEmitter<Category>();
+
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<Category>;
   dataSource: CategoryTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'title'];
+  displayedColumns = ['id', 'title', 'actions'];
 
   ngOnInit() {
     this.dataSource = new CategoryTableDataSource();
@@ -36,4 +39,13 @@ export class CategoryTableComponent implements AfterViewInit, OnInit, OnChanges 
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
+
+  onEdit(category: Category) {
+    this.edit.emit(category);
+  }
+
+  onDelete(category: Category) {
+    this.delete.emit(category);
+  }
+
 }

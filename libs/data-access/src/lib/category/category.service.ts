@@ -12,12 +12,21 @@ export class CategoryService {
 
   constructor(private db: AngularFirestore) { }
 
-  insert(category: Category): Promise<DocumentReference> {
-    return this.db.collection<Category>(this.COLLECTION_NAME).add(category);
-  }
-
   findAll(): Observable<Category[]> {
     return this.db.collection<Category>(this.COLLECTION_NAME).valueChanges();
+  }
+
+  findOne(id: string): Observable<Category> {
+    return this.db.doc<Category>(`${this.COLLECTION_NAME}/${id}`).valueChanges();
+  }
+
+  insert(category: Category): Promise<void> {
+    // return this.db.collection<Category>(this.COLLECTION_NAME).add(category);
+    return this.db.doc<Category>(`${this.COLLECTION_NAME}/${category.id}`).set(category);
+  }
+
+  update(updatedCategory: Partial<Category>): Promise<void> {
+    return this.db.doc<Category>(`${this.COLLECTION_NAME}/${updatedCategory.id}`).update(updatedCategory);
   }
 
 }

@@ -1,1 +1,12 @@
-<p>category-edit works!</p>
+<mat-card class="entity-card">
+
+  <mat-card-header>
+    <mat-card-title>UPDATE CATEGORY</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ngfire-cms-category-form [category]="category" (save)="onSave($event)">
+    </ngfire-cms-category-form>
+  </mat-card-content>
+
+</mat-card>
