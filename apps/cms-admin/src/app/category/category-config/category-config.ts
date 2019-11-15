@@ -1,3 +1,3 @@
 export default {
-  collectionName: 'articles'
+  collectionName: 'categories'
 };

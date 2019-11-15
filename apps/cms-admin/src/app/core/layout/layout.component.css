@@ -19,3 +19,8 @@
 .app-content {
   padding: 20px;
 }
+
+.router-link-active {
+  font-weight: bolder;
+  background-color: #e8e8e8;
+}
