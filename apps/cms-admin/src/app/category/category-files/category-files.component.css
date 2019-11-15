@@ -1,0 +1,13 @@
+.actions {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.actions button {
+  margin-right: 10px;
+}
+
+.image-card {
+  max-width: 250px;
+  margin-right: 20px;
+}

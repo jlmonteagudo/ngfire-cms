@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@ngfire-cms/material-ui": ["libs/material-ui/src/index.ts"],
-      "@ngfire-cms/data-access": ["libs/data-access/src/index.ts"]
+      "@ngfire-cms/data-access": ["libs/data-access/src/index.ts"],
+      "@ngfire-cms/util/fire-upload": ["libs/util/fire-upload/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

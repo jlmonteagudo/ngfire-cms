@@ -1,4 +1,3 @@
-import { AppSnackbarComponent } from './app-snackbar/app-snackbar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -45,6 +44,9 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CdkTableModule } from '@angular/cdk/table';
 import { A11yModule } from '@angular/cdk/a11y';
 import { LayoutModule } from '@angular/cdk/layout';
+
+import { AppSnackbarComponent } from './app-snackbar/app-snackbar.component';
+import { AppConfirmationDialogComponent } from './app-confirmation-dialog/app-confirmation-dialog.component';
 
 const modules = [
   LayoutModule,
@@ -93,12 +95,14 @@ const modules = [
 
 @NgModule({
   imports: [CommonModule, ...modules],
-  exports: [...modules],
+  exports: [...modules, AppConfirmationDialogComponent],
   declarations: [
-    AppSnackbarComponent
+    AppSnackbarComponent,
+    AppConfirmationDialogComponent
   ],
   entryComponents: [
-    AppSnackbarComponent
+    AppSnackbarComponent,
+    AppConfirmationDialogComponent
   ]
 })
 export class MaterialUiModule {}

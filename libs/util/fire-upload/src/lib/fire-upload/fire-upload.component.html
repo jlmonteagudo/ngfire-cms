@@ -1,0 +1,17 @@
+<div class="dropzone"
+  appDropzone
+  (hovered)="toggleHover($event)"
+  (dropped)="onDrop($event)"
+  [class.hovering]="isHovering">
+
+  <h3>Files Drop Zone</h3>
+  <p>Drag and Drop a File</p>
+</div>
+
+<h3 *ngIf="files?.length > 0">Uploads</h3>
+
+<div class="images-container" fxLayout="row wrap" fxLayoutAlign="none">
+  <div *ngFor="let file of files">
+    <fire-upload-task [file]="file" [filePath]="filePath" (fileUploaded)="onFileUploaded($event)"></fire-upload-task>
+  </div>
+</div>

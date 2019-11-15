@@ -15,6 +15,7 @@ export class CategoryTableComponent implements AfterViewInit, OnInit, OnChanges 
   @Input() categories: Category[];
   @Output() edit: EventEmitter<Category> = new EventEmitter<Category>();
   @Output() delete: EventEmitter<Category> = new EventEmitter<Category>();
+  @Output() files: EventEmitter<Category> = new EventEmitter<Category>();
 
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
@@ -46,6 +47,10 @@ export class CategoryTableComponent implements AfterViewInit, OnInit, OnChanges 
 
   onDelete(category: Category) {
     this.delete.emit(category);
+  }
+
+  onFiles(category: Category) {
+    this.files.emit(category);
   }
 
 }

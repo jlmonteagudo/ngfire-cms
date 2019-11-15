@@ -16,5 +16,7 @@
 <ngfire-cms-category-table
   [categories]="filteredCategories$ | async"
   (edit)="onEdit($event)"
+  (delete)="onDelete($event)"
+  (files)="onFiles($event)"
   >
 </ngfire-cms-category-table>

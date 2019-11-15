@@ -1,1 +1,11 @@
-<p>category-upload works!</p>
+<h3>UPLOAD FILES</h3>
+
+<div *ngIf="category">
+
+  <button mat-raised-button color="primary" type="button" [routerLink]="['../../files', category.id]">
+    <mat-icon>arrow_back</mat-icon> BACK
+  </button>
+
+  <fire-upload [filePath]="filePath" (filesUploaded)="onFilesUploaded($event)"></fire-upload>
+
+</div>

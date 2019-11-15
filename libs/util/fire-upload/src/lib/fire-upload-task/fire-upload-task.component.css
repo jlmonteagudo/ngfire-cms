@@ -1,0 +1,14 @@
+mat-card {
+  max-width: 200px;
+  margin-right: 20px;
+}
+
+mat-card mat-card-actions {
+  padding: 20px;
+  text-align: center;
+}
+
+.byte-transfer {
+  text-align: center;
+  width: 100%;
+}

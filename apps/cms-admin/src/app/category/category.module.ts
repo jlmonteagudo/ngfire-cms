@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialUiModule } from '@ngfire-cms/material-ui';
 
 import { CategoryRoutingModule } from './category-routing.module';
 import { CategoryFormComponent } from './category-form/category-form.component';
@@ -11,9 +10,9 @@ import { CategoryFilesComponent } from './category-files/category-files.componen
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryUploadComponent } from './category-upload/category-upload.component';
 import { CategoryTableComponent } from './category-table/category-table.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+
+import { MaterialUiModule } from '@ngfire-cms/material-ui';
+import { UtilFireUploadModule } from '@ngfire-cms/util/fire-upload';
 
 @NgModule({
   declarations: [CategoryFormComponent, CategoryNewComponent, CategoryEditComponent, CategoryFilesComponent, CategoryListComponent, CategoryUploadComponent, CategoryTableComponent],
@@ -23,9 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
     MaterialUiModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    UtilFireUploadModule
   ]
 })
 export class CategoryModule { }

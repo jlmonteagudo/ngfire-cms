@@ -295,6 +295,31 @@
         }
       },
       "schematics": {}
+    },
+    "util-fire-upload": {
+      "root": "libs/util/fire-upload",
+      "sourceRoot": "libs/util/fire-upload/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/util/fire-upload/tsconfig.lib.json",
+              "libs/util/fire-upload/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/util/fire-upload/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/util/fire-upload/jest.config.js",
+            "tsConfig": "libs/util/fire-upload/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {
