@@ -5,8 +5,8 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['/category']" routerLinkActive="router-link-active">Category</a>
-      <a mat-list-item [routerLink]="['/article']" routerLinkActive="router-link-active" >Article</a>
+      <a mat-list-item [routerLink]="['/category']" routerLinkActive="router-link-active"><mat-icon>category</mat-icon>Category</a>
+      <a mat-list-item [routerLink]="['/article']" routerLinkActive="router-link-active" ><mat-icon>notes</mat-icon>Article</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

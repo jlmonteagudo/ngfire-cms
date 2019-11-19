@@ -1,1 +1,12 @@
-<p>article-edit works!</p>
+<mat-card class="entity-card">
+
+  <mat-card-header>
+    <mat-card-title>UPDATE ARTICLE</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ngfire-cms-article-form [article]="article" (save)="onSave($event)">
+    </ngfire-cms-article-form>
+  </mat-card-content>
+
+</mat-card>

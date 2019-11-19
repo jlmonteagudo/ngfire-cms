@@ -35,8 +35,8 @@ export class CategoryUploadComponent implements OnInit {
     this.category.images = newImages;
 
     this.categoryService.update(this.category)
-      .then(() => this.appSnackbarService.info('Article has been updated'))
-      .catch(error => this.appSnackbarService.error(`Error updating the article`));
+      .then(() => this.appSnackbarService.info('Files have been uploaded'))
+      .catch(error => this.appSnackbarService.error(`Error uploading files`));
 
   }
 

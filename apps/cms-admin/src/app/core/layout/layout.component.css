@@ -24,3 +24,7 @@
   font-weight: bolder;
   background-color: #e8e8e8;
 }
+
+mat-nav-list mat-icon {
+  margin-right: 15px;
+}

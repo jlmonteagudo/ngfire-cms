@@ -1,1 +1,33 @@
-<p>article-files works!</p>
+<div class="actions">
+
+  <button mat-raised-button color="primary" type="button" [routerLink]="['../../']">
+    <mat-icon>arrow_back</mat-icon> BACK
+  </button>
+
+  <button mat-raised-button color="primary" [routerLink]="['../../upload', article.id]">
+    <mat-icon>add</mat-icon> ADD FILES
+  </button>
+
+</div>
+
+<div class="images-container" fxLayout="row wrap" fxLayoutAlign="none" *ngIf="article">
+  <div *ngFor="let imageURL of article.images">
+
+    <mat-card class="image-card">
+
+      <a [href]="imageURL" target="_blank">
+        <img mat-card-image [src]="imageURL">
+      </a>
+
+      <mat-checkbox [checked]="imageURL === article.featuredImageURL" [disabled]="true">Featured Image</mat-checkbox>
+
+      <mat-card-actions>
+        <button mat-button color="warn" (click)="onDelete(imageURL)">DELETE</button>
+        <button mat-button (click)="onFeatureImage(imageURL)">FEATURED IMAGE</button>
+      </mat-card-actions>
+
+    </mat-card>
+
+  </div>
+</div>
+

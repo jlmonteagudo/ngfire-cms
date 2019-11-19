@@ -1,1 +1,11 @@
-<p>article-upload works!</p>
+<h3>UPLOAD FILES</h3>
+
+<div *ngIf="article">
+
+  <button mat-raised-button color="primary" type="button" [routerLink]="['../../files', article.id]">
+    <mat-icon>arrow_back</mat-icon> BACK
+  </button>
+
+  <fire-upload [filePath]="filePath" (filesUploaded)="onFilesUploaded($event)"></fire-upload>
+
+</div>

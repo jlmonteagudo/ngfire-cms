@@ -7,3 +7,16 @@
     </button>
   </div>
 </div>
+
+<mat-form-field>
+  <input matInput placeholder="Filter by title" [formControl]="filter">
+  <mat-icon matSuffix>filter_list</mat-icon>
+</mat-form-field>
+
+<ngfire-cms-article-table
+  [articles]="filteredArticles$ | async"
+  (edit)="onEdit($event)"
+  (delete)="onDelete($event)"
+  (files)="onFiles($event)"
+  >
+</ngfire-cms-article-table>
